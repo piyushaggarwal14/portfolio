@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="enhancements.css" />
+    <link rel="stylesheet" href="mobile.css" />
     <script defer src="app.js"></script>
   </head>
   <body>
@@ -28,6 +29,9 @@
     <header class="nav-wrap">
       <nav class="nav">
         <a class="monogram" href="#top" aria-label="Piyush Aggarwal home">PA<span>.</span></a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-mobile" aria-label="Toggle navigation">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
         <div class="nav-links" aria-label="Main navigation">
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
@@ -35,6 +39,14 @@
           <a href="https://www.linkedin.com/in/piyushagrwal" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         </div>
         <a class="nav-contact" href="mailto:pa234211@gmail.com">Contact me <span>↗</span></a>
+
+        <div id="nav-mobile" class="nav-mobile" aria-hidden="true">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#craft">Craft</a>
+          <a href="https://www.linkedin.com/in/piyushagrwal" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="nav-contact-mobile" href="mailto:pa234211@gmail.com">Contact me <span>↗</span></a>
+        </div>
       </nav>
     </header>
 
@@ -105,7 +117,7 @@
           <article class="impact-stat impact-lime" data-tilt><strong>40<span>%</span></strong><p>faster message<br />processing</p><span>↗</span></article>
           <article class="impact-stat impact-coral" data-tilt><strong>200<span> hrs</span></strong><p>saved each month<br />in operations</p><span>↗</span></article>
           <article class="impact-wide" data-tilt>
-            <p class="impact-label">FULFILLMENT ENGINEERING</p><strong>30<span>%</span></strong><h3>Less logistics overhead.</h3><p>Inventory-splitting logic designed around customer proximity and fulfillment efficiency.</p>
+            <p class="impact-label">FULFILLMENT ENGINEERING</p><strong>30<span>%</span></strong><h3>Less logistics overhead.</h3><p>Inventory-splitting logic designed around customer proximity and order routing to reduce fulfillment cost.
             <div class="route-line" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
           </article>
         </div>
@@ -119,7 +131,7 @@
             <div class="role-title"><p class="company-name">Pine Labs</p><h3>Senior Software Engineer <em>(IC4)</em></h3></div>
             <div class="role-details">
               <p>Leading merchant onboarding transformation and building foundational platforms for POS device application management.</p>
-              <ul><li>Modernized onboarding by moving from Salesforce CRM to in-house platforms.</li><li>Designed a centralized POS application platform from the ground up.</li><li>Scaled secure REST microservices with Kafka, caching, MongoDB, and PostgreSQL.</li></ul>
+              <ul><li>Modernized onboarding by moving from Salesforce CRM to in-house platforms.</li><li>Designed a centralized POS application platform from the ground up.</li><li>Scaled secure integrations with payment partners.</li></ul>
             </div>
             <span class="role-arrow">↗</span>
           </article>
@@ -128,7 +140,7 @@
             <div class="role-title"><p class="company-name">CaaStle Inc.</p><h3>Senior Software Engineer <em>(IC3)</em></h3></div>
             <div class="role-details">
               <p>Delivered logistics and operations platforms for a high-growth rental subscription business.</p>
-              <ul><li>Built inventory-splitting logic, cutting logistics overhead 30%.</li><li>Replaced physical inspection tags, saving 200 hours every month.</li><li>Led RabbitMQ-to-Kafka migration for 100K+ daily messages.</li></ul>
+              <ul><li>Built inventory-splitting logic, cutting logistics overhead 30%.</li><li>Replaced physical inspection tags, saving 200 hours every month.</li><li>Led RabbitMQ-to-Kafka migration.</li></ul>
             </div>
             <span class="role-arrow">↗</span>
           </article>
@@ -144,9 +156,9 @@
       <section id="craft" class="craft section-shell">
         <div class="section-head reveal"><p class="section-index">03 / CRAFT</p><h2>The tools are familiar.<br />The <em>judgment</em> is the edge.</h2></div>
         <div class="skills-grid">
-          <article class="skill-card skill-main reveal" data-tilt><p>Backend architecture</p><div class="skill-word">Java<br /><span>Spring Boot</span></div><small>API design · Microservices · System design</small></article>
+          <article class="skill-card skill-main reveal" data-tilt><p>Backend architecture</p><div class="skill-word">Java<br /><span>Spring Boot</span></div><small>API design · Microservices · Observability</small></article>
           <article class="skill-card reveal" data-tilt><p>Asynchronous systems</p><div class="skill-word smaller">Kafka<br /><span>RabbitMQ</span></div><small>Event-driven architecture · Distributed systems</small></article>
-          <article class="skill-card reveal" data-tilt><p>Data & performance</p><div class="skill-word smaller">Postgres<br /><span>MongoDB · Redis</span></div><small>MySQL · ElasticSearch · Impala</small></article>
+          <article class="skill-card reveal" data-tilt><p>Data & performance</p><div class="skill-word smaller">Postgres<br /><span>MongoDB · Redis</span></div><small>MySQL · ElasticSearch · Indexing</small></article>
           <article class="skill-card skill-quote reveal"><span>“</span><p>I care about the seams: where services meet, where systems fail, and where teams need clarity.</p></article>
         </div>
       </section>
@@ -154,8 +166,8 @@
       <section class="project section-shell reveal">
         <p class="section-index">04 / EXPERIMENTS & MENTORSHIP</p>
         <div class="project-grid">
-          <article class="project-card" data-tilt><span class="project-number">01</span><h3>Pool Game Assistor</h3><p>Computer-vision experiment using contour extraction to detect balls and predict paths on a pool table.</p><div class="project-tags"><span>Python</span><span>OpenCV</span><span>Computer Vision</span></div></article>
-          <article class="project-card mentor-card" data-tilt><span class="project-number">02</span><h3>Teaching Mentor</h3><p>Helped 200+ students strengthen their problem-solving skills by resolving 400+ DSA questions at Coding Ninjas.</p><div class="project-tags"><span>Mentorship</span><span>DSA</span><span>Community</span></div></article>
+          <article class="project-card" data-tilt><span class="project-number">01</span><h3>Pool Game Assistor</h3><p>Computer-vision experiment using contour extraction to detect balls and predict shots.</p></article>
+          <article class="project-card mentor-card" data-tilt><span class="project-number">02</span><h3>Teaching Mentor</h3><p>Helped 200+ students strengthen their problem-solving skills by resolving algorithmic challenges and real-world projects.</p></article>
         </div>
       </section>
 
@@ -163,7 +175,7 @@
         <p class="footer-kicker">HAVE A CHALLENGING PROBLEM?</p>
         <h2>Let’s make it <em>reliable.</em></h2>
         <a class="footer-mail" href="mailto:pa234211@gmail.com">Contact me <span>↗</span></a>
-        <div class="footer-bottom"><span>© 2026 Piyush Aggarwal</span><a href="https://www.linkedin.com/in/piyushagrwal" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="#top">Back to top ↑</a></div>
+        <div class="footer-bottom"><span>© 2026 Piyush Aggarwal</span><a href="https://www.linkedin.com/in/piyushagrwal" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="#top">Back to top</a></div>
       </footer>
     </main>
   </body>
