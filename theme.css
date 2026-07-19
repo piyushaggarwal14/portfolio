@@ -10,6 +10,7 @@
   --coral: #ff8870;
   --card-bg: #1a1f2e;
   --card-text: #e9e8e2;
+  --card-label: #a6a5a0;
   --nav-bg: rgba(8, 11, 19, 0.8);
   --border-light: rgba(233, 232, 226, 0.1);
 }
@@ -24,8 +25,9 @@ html[data-theme="light"] {
   --lime: #86e80c;
   --purple: #7c5cff;
   --coral: #ff6b4a;
-  --card-bg: #f0f0f0;
-  --card-text: #1a1a1a;
+  --card-bg: #3a3a3a;
+  --card-text: #ffffff;
+  --card-label: #b0b0b0;
   --nav-bg: rgba(250, 250, 250, 0.8);
   --border-light: rgba(26, 26, 26, 0.1);
 }
@@ -42,6 +44,7 @@ html:not([data-theme]) {
   --coral: #ff8870;
   --card-bg: #1a1f2e;
   --card-text: #e9e8e2;
+  --card-label: #a6a5a0;
   --nav-bg: rgba(8, 11, 19, 0.8);
   --border-light: rgba(233, 232, 226, 0.1);
 }
@@ -89,7 +92,7 @@ html:not([data-theme]) {
 /* Card labels and special text */
 .card-label,
 .impact-label {
-  color: var(--muted);
+  color: var(--card-label);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -104,7 +107,21 @@ html:not([data-theme]) {
 .system-card strong,
 .impact-stat strong,
 .impact-wide strong {
-  color: var(--ink);
+  color: var(--card-text);
+}
+
+.system-card h3 {
+  color: var(--card-text);
+}
+
+.impact-lead h3,
+.impact-wide h3 {
+  color: var(--card-text);
+}
+
+.impact-lead p,
+.impact-wide p {
+  color: var(--card-text);
 }
 
 /* Buttons and CTAs */
@@ -129,12 +146,12 @@ html[data-theme="light"] .button:hover {
 }
 
 .role-meta {
-  color: var(--muted);
+  color: var(--card-label);
   font-size: 0.875rem;
 }
 
 .role-title h3 {
-  color: var(--ink);
+  color: var(--card-text);
 }
 
 .role-title p {
@@ -142,7 +159,15 @@ html[data-theme="light"] .button:hover {
 }
 
 .role-details {
-  color: var(--ink);
+  color: var(--card-text);
+}
+
+.role-details p {
+  color: var(--card-text);
+}
+
+.role-details ul li {
+  color: var(--card-text);
 }
 
 .role-arrow {
@@ -156,16 +181,16 @@ html[data-theme="light"] .button:hover {
 }
 
 .skill-card p {
-  color: var(--muted);
+  color: var(--card-text);
 }
 
 .skill-word {
-  color: var(--ink);
+  color: var(--card-text);
   font-weight: 600;
 }
 
 .skill-card small {
-  color: var(--muted);
+  color: var(--card-label);
 }
 
 .project-card {
@@ -174,11 +199,11 @@ html[data-theme="light"] .button:hover {
 }
 
 .project-card h3 {
-  color: var(--ink);
+  color: var(--card-text);
 }
 
 .project-card p {
-  color: var(--muted);
+  color: var(--card-label);
 }
 
 /* Footer */
