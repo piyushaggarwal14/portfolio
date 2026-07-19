@@ -1,0 +1,122 @@
+/* Dark Mode (Default) */
+:root {
+  --ink: #e9e8e2;
+  --muted: #a6a5a0;
+  --line: rgba(233, 232, 226, 0.16);
+  --bg: #080b13;
+  --panel: #111521;
+  --lime: #cdfc7a;
+  --purple: #9878ff;
+  --coral: #ff8870;
+}
+
+/* Light Mode */
+html[data-theme="light"] {
+  --ink: #1a1a1a;
+  --muted: #707070;
+  --line: rgba(26, 26, 26, 0.12);
+  --bg: #fafafa;
+  --panel: #f0f0f0;
+  --lime: #86e80c;
+  --purple: #7c5cff;
+  --coral: #ff6b4a;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--ink);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.theme-toggle:hover {
+  border-color: var(--ink);
+  transform: scale(1.05);
+}
+
+.sun-icon,
+.moon-icon {
+  position: absolute;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+html[data-theme="light"] .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+html[data-theme="light"] .moon-icon {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+html[data-theme="dark"] .sun-icon {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+html[data-theme="dark"] .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+/* Auto mode (system preference) */
+html:not([data-theme]) .sun-icon {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+html:not([data-theme]) .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+/* Smooth transitions between themes */
+html,
+body,
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Nav Actions Container */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .sun-icon,
+  .moon-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Print Mode */
+@media print {
+  .theme-toggle {
+    display: none;
+  }
+}

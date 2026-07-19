@@ -1,5 +1,68 @@
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Theme Toggle
+const themeToggle = document.getElementById("themeToggle");
+const htmlElement = document.documentElement;
+
+// Check saved theme or system preference
+const savedTheme = localStorage.getItem("theme") || "auto";
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const preferLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+
+// Set initial theme
+function setTheme(theme) {
+  if (theme === "light") {
+    htmlElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+  } else if (theme === "dark") {
+    htmlElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  } else {
+    htmlElement.removeAttribute("data-theme");
+    localStorage.setItem("theme", "auto");
+  }
+}
+
+// Initialize theme
+if (savedTheme === "light") {
+  setTheme("light");
+} else if (savedTheme === "dark") {
+  setTheme("dark");
+} else {
+  setTheme("auto");
+}
+
+// Theme toggle handler
+themeToggle.addEventListener("click", () => {
+  const currentTheme = htmlElement.getAttribute("data-theme");
+  if (currentTheme === "light") {
+    setTheme("dark");
+  } else if (currentTheme === "dark") {
+    setTheme("auto");
+  } else {
+    setTheme("light");
+  }
+});
+
+// Mobile Navigation
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+navToggle.addEventListener("click", () => {
+  const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+  navToggle.setAttribute("aria-expanded", !isExpanded);
+  navLinks.classList.toggle("is-active");
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navToggle.setAttribute("aria-expanded", "false");
+    navLinks.classList.remove("is-active");
+  });
+});
+
+// Animations
 if (!reduceMotion) {
   const observer = new IntersectionObserver(
     (entries) => entries.forEach((entry) => {
